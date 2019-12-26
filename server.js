@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 
 let transporter = nodemailer.createTransport({
-  service: 'gmail',
+  service: 'gmail',  // domain name
   auth: {
     user: 'amansultanbaig@gmail.com',
     pass: '#######' // put your password in environment file and access from there 
@@ -9,12 +9,13 @@ let transporter = nodemailer.createTransport({
 });
 
 let mailOptions = {
-  from: 'amansultanbaig@gmail.com',
+  from: 'amansultanbaig@gmail.com', 
   to: 'youremail@gmail.com',
   subject: 'Sending Email using Node.js',
   text: 'Hey i am using nodemailer'
 };
 
+// error handling while email send or not
 transporter.sendMail(mailOptions, function(error, info){
   if (error) {
     console.log(error);
